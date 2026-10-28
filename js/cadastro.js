@@ -24,7 +24,14 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ---------- máscaras em tempo real ------------------------------------- */
   campos.cpf.addEventListener("input", () => {
     campos.cpf.value = mascararCPF(campos.cpf.value);
-    validarCampoCPF();
+    if (campos.cpf.value.replace(/\D/g, "").length === 11) {
+      validarCampoCPF();
+    } else {
+      limparEstadoCampo(campos.cpf); // ainda digitando: não mostra erro
+    }
+  });
+  campos.cpf.addEventListener("blur", () => {
+    if (campos.cpf.value.length) validarCampoCPF();
   });
 
   campos.telefoneFixo.addEventListener("input", () => {
@@ -35,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   campos.cep.addEventListener("input", () => {
-    campos.cep.value = mascararCEP(campos.cep.value);
+    delete campos.cep.dataset.naoEncontrado; // CEP mudou: vale consultar de novo
   });
 
   campos.cep.addEventListener("blur", async () => {
@@ -44,6 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
     try {
       const dados = await buscarEnderecoPorCEP(cepLimpo);
       if (dados.erro) {
+        campos.cep.dataset.naoEncontrado = "1";
         mostrarErroCampo(campos.cep, "CEP não encontrado.");
         return;
       }
@@ -81,6 +89,10 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function validarCampoCEP() {
+    if (campos.cep.dataset.naoEncontrado === "1") {
+      exibirEstado(campos.cep, false, "CEP não encontrado.");
+      return false;
+    }
     const valido = campos.cep.value.replace(/\D/g, "").length === 8;
     exibirEstado(campos.cep, valido, "Informe um CEP com 8 dígitos.");
     return valido;
@@ -117,6 +129,11 @@ document.addEventListener("DOMContentLoaded", () => {
     campo.classList.toggle("invalido", !valido);
     const erroEl = document.getElementById(campo.id + "-erro");
     if (erroEl) erroEl.textContent = valido ? "" : mensagem;
+  }
+  function limparEstadoCampo(campo) {
+    campo.classList.remove("valido", "invalido");
+    const erroEl = document.getElementById(campo.id + "-erro");
+    if (erroEl) erroEl.textContent = "";
   }
   function mostrarErroCampo(campo, mensagem) { exibirEstado(campo, false, mensagem); }
   function limparErroCampo(campo) { exibirEstado(campo, true, ""); }
@@ -173,22 +190,13 @@ function mascararCPF(valor) {
 }
 
 function mascararTelefone(valor) {
-  // remove o prefixo fixo "(+55)" ANTES de extrair os dígitos — senão o "55"
-  // dele é lido como se o usuário tivesse digitado, duplicando a cada tecla.
-  const semPrefixo = valor.replace(/^\(\+55\)/, "");
+  // Remove o prefixo "(+55)" já aplicado antes de ler os dígitos; senão o "55" vira DDD
+  const semPrefixo = valor.replace(/^\(\+55\)?/, "");
   const digitos = semPrefixo.replace(/\D/g, "").slice(0, 11);
-  if (digitos.length === 0) return "";
-  if (digitos.length <= 2) return `(+55)${digitos}`;
+  if (digitos.length <= 2) return digitos.length ? `(+55)${digitos}` : "";
   const ddd = digitos.slice(0, 2);
   const numero = digitos.slice(2);
   return `(+55)${ddd}-${numero}`;
-}
-
-function mascararCEP(valor) {
-  return valor
-    .replace(/\D/g, "")
-    .slice(0, 8)
-    .replace(/(\d{5})(\d)/, "$1-$2");
 }
 
 /* ---------- validação real do CPF (dígitos verificadores) ------------------- */
