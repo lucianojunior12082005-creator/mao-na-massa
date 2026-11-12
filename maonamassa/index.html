@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mão na Massa — profissionais autônomos para o seu serviço</title>
+<meta name="description" content="Encontre profissionais autônomos de confiança para limpeza, manutenção e pequenas obras, perto de você.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="cabecalho">
+  <div class="barra-acessibilidade">
+    <div class="container">
+      <span>Acessibilidade</span>
+      <button class="botao-a11y" data-a11y="tema" aria-pressed="false" title="Alternar tema claro/escuro">◐</button>
+      <button class="botao-a11y" data-a11y="fonte-menos" title="Diminuir tamanho da fonte">A-</button>
+      <button class="botao-a11y" data-a11y="fonte-mais" title="Aumentar tamanho da fonte">A+</button>
+    </div>
+  </div>
+  <div class="container barra-nav">
+    <a href="index.html" class="marca">Mão<span class="ponto">na</span>Massa</a>
+    <button class="alterna-menu-mobile" aria-expanded="false" aria-label="Abrir menu">☰</button>
+    <ul class="menu-principal">
+      <li class="tem-submenu">
+        <button class="link-menu" aria-haspopup="true">Serviços</button>
+        <ul class="submenu">
+          <li><a href="#limpeza">Limpeza</a></li>
+          <li><a href="#manutencao">Manutenção</a></li>
+          <li><a href="#obras">Pequenas obras</a></li>
+        </ul>
+      </li>
+      <li data-ocultar-tipo="profissional"><a href="profissionais.html" class="link-menu">Profissionais</a></li>
+      <li><a href="#como-funciona" class="link-menu">Como funciona</a></li>
+      <li data-visivel="deslogado"><a href="cadastro.html" class="link-menu">Cadastre-se</a></li>
+      <li data-visivel="deslogado"><a href="login.html" class="botao botao-primario">Entrar</a></li>
+      <li data-visivel="logado" class="oculto"><a href="dashboard.html" class="link-menu">Painel</a></li>
+      <li data-visivel="logado" class="sessao-usuario oculto">
+        <span class="nome-usuario" data-sessao="nome">—</span>
+        <a href="#" class="botao botao-secundario" data-acao="logout">Sair</a>
+      </li>
+    </ul>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="container">
+      <div class="hero-texto">
+        <span class="rotulo">Ordem de serviço nº 0001</span>
+        <h1>Todo trabalho que sua casa precisa, com quem entende do ofício.</h1>
+        <p>Conectamos você a profissionais autônomos avaliados por outros clientes para limpeza, manutenção e pequenos reparos — do pingente da torneira à pintura da sala.</p>
+        <div class="acoes-hero">
+          <a href="cadastro.html" class="botao botao-primario" data-cta-logado="dashboard.html" data-cta-logado-texto="Ir para o meu painel">Quero contratar</a>
+          <a href="#como-funciona" class="botao botao-secundario">Ver como funciona</a>
+        </div>
+      </div>
+      <div class="ficha-servico">
+        <dl>
+          <dt>Serviço</dt>
+          <dd>Manutenção elétrica</dd>
+          <dt>Profissional</dt>
+          <dd>Marcos T. — 4,9 de avaliação</dd>
+          <dt>Prazo</dt>
+          <dd>Atendimento em até 24h</dd>
+          <dt>Bairro</dt>
+          <dd>Tijuca, Rio de Janeiro</dd>
+        </dl>
+        <span class="selo-ok">Serviço concluído ✓</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="servicos">
+    <div class="container">
+      <div class="cabecalho-secao">
+        <h2>O que você precisa resolver hoje?</h2>
+        <p>Três frentes de trabalho, profissionais verificados em cada uma delas.</p>
+      </div>
+      <div class="grade-categorias">
+        <article class="cartao-categoria" id="limpeza">
+          <h3>Limpeza</h3>
+          <p>Faxina residencial, pós-obra e limpeza de estofados.</p>
+          <ul>
+            <li>Faxina completa</li>
+            <li>Limpeza pós-obra</li>
+            <li>Higienização de sofás e tapetes</li>
+          </ul>
+        </article>
+        <article class="cartao-categoria" id="manutencao">
+          <h3>Manutenção</h3>
+          <p>Reparos elétricos, hidráulicos e de eletrodomésticos.</p>
+          <ul>
+            <li>Elétrica residencial</li>
+            <li>Encanamento e vazamentos</li>
+            <li>Ar-condicionado</li>
+          </ul>
+        </article>
+        <article class="cartao-categoria" id="obras">
+          <h3>Pequenas obras</h3>
+          <p>Reformas pontuais, pintura e montagem de móveis.</p>
+          <ul>
+            <li>Pintura de ambientes</li>
+            <li>Montagem de móveis</li>
+            <li>Reparos de alvenaria</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao secao-alt">
+    <div class="container">
+      <div class="cabecalho-secao">
+        <h2>Profissionais em destaque</h2>
+        <p>Uma amostra de quem já está pronto para atender seu pedido.</p>
+      </div>
+      <div class="grade-profissionais">
+        <article class="cartao-profissional">
+          <span class="servico-tag">Limpeza</span>
+          <h3>Roseli A.</h3>
+          <p>12 anos de experiência em faxina residencial e organização de ambientes.</p>
+          <p class="preco">R$ 120 <small>/ diária</small></p>
+        </article>
+        <article class="cartao-profissional">
+          <span class="servico-tag">Manutenção</span>
+          <h3>Marcos T.</h3>
+          <p>Eletricista autônomo, especialista em instalações e emergências.</p>
+          <p class="preco">R$ 90 <small>/ visita</small></p>
+        </article>
+        <article class="cartao-profissional">
+          <span class="servico-tag">Pequenas obras</span>
+          <h3>Juliana P.</h3>
+          <p>Pintora e montadora de móveis, atendimento rápido na região.</p>
+          <p class="preco">R$ 150 <small>/ diária</small></p>
+        </article>
+      </div>
+      <p style="margin-top:1.6rem;" data-ocultar-tipo="profissional"><a href="profissionais.html" class="botao botao-primario">Ver todos os profissionais</a></p>
+    </div>
+  </section>
+
+  <section class="secao" id="como-funciona">
+    <div class="container">
+      <div class="cabecalho-secao">
+        <h2>Como funciona</h2>
+        <p>Do cadastro ao serviço concluído, em três etapas simples.</p>
+      </div>
+      <ol class="lista-passos">
+        <li>
+          <h3>Crie sua conta</h3>
+          <p>Cadastre seus dados uma única vez para solicitar quantos serviços precisar.</p>
+        </li>
+        <li>
+          <h3>Descreva o serviço</h3>
+          <p>Conte o que precisa, a urgência e o período de preferência.</p>
+        </li>
+        <li>
+          <h3>Receba o profissional</h3>
+          <p>Acompanhe o andamento e avalie o atendimento ao final.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+</main>
+
+<footer class="rodape">
+  <div class="container">
+    <p>© 2026 Mão na Massa. Projeto acadêmico — UNISUAM.</p>
+    <p>Rio de Janeiro, RJ</p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profissionais — Mão na Massa</title>
+<meta name="description" content="Encontre profissionais autônomos de limpeza, manutenção e pequenas obras. Filtre por categoria, nota e preço.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="cabecalho">
+  <div class="barra-acessibilidade">
+    <div class="container">
+      <span>Acessibilidade</span>
+      <button class="botao-a11y" data-a11y="tema" aria-pressed="false" title="Alternar tema claro/escuro">◐</button>
+      <button class="botao-a11y" data-a11y="fonte-menos" title="Diminuir tamanho da fonte">A-</button>
+      <button class="botao-a11y" data-a11y="fonte-mais" title="Aumentar tamanho da fonte">A+</button>
+    </div>
+  </div>
+  <div class="container barra-nav">
+    <a href="index.html" class="marca">Mão<span class="ponto">na</span>Massa</a>
+    <button class="alterna-menu-mobile" aria-expanded="false" aria-label="Abrir menu">☰</button>
+    <ul class="menu-principal">
+      <li data-ocultar-tipo="profissional"><a href="profissionais.html" class="link-menu">Profissionais</a></li>
+      <li data-visivel="deslogado"><a href="cadastro.html" class="link-menu">Cadastre-se</a></li>
+      <li data-visivel="deslogado"><a href="login.html" class="botao botao-primario">Entrar</a></li>
+      <li data-visivel="logado" class="oculto"><a href="dashboard.html" class="link-menu">Painel</a></li>
+      <li data-visivel="logado" class="sessao-usuario oculto">
+        <span class="nome-usuario" data-sessao="nome">—</span>
+        <a href="#" class="botao botao-secundario" data-acao="logout">Sair</a>
+      </li>
+    </ul>
+  </div>
+</header>
+
+<main class="secao">
+  <div class="container">
+    <div class="cabecalho-secao">
+      <h1 style="font-size:2.2rem;">Profissionais</h1>
+      <p>Compare quem atende na sua região e peça um orçamento direto com o profissional escolhido.</p>
+    </div>
+
+    <form class="barra-filtros" id="filtros" role="search" aria-label="Filtrar profissionais" onsubmit="return false">
+      <div class="campo">
+        <label for="busca">Buscar</label>
+        <input type="search" id="busca" placeholder="Nome, bairro ou especialidade">
+      </div>
+      <div class="campo">
+        <label for="filtro-categoria">Categoria</label>
+        <select id="filtro-categoria">
+          <option value="">Todas</option>
+          <option value="limpeza">Limpeza</option>
+          <option value="manutencao">Manutenção</option>
+          <option value="obras">Pequenas obras</option>
+        </select>
+      </div>
+      <div class="campo">
+        <label for="filtro-nota">Nota mínima</label>
+        <select id="filtro-nota">
+          <option value="0">Qualquer</option>
+          <option value="4.5">4,5 ou mais</option>
+          <option value="4.8">4,8 ou mais</option>
+        </select>
+      </div>
+      <div class="campo">
+        <label for="ordenar">Ordenar por</label>
+        <select id="ordenar">
+          <option value="nota">Melhor avaliação</option>
+          <option value="preco-asc">Menor preço</option>
+          <option value="preco-desc">Maior preço</option>
+          <option value="experiencia">Mais experiência</option>
+        </select>
+      </div>
+    </form>
+
+    <p class="contador-resultados" id="contador" aria-live="polite"></p>
+    <div class="grade-profissionais" id="lista-profissionais"></div>
+  </div>
+</main>
+
+<footer class="rodape">
+  <div class="container">
+    <p>© 2026 Mão na Massa. Projeto acadêmico — UNISUAM.</p>
+    <p>Rio de Janeiro, RJ</p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/dados.js"></script>
+<script src="js/profissionais.js"></script>
+</body>
+</html>

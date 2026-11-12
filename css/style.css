@@ -11,7 +11,7 @@
   --cor-texto: #201d1a;
   --cor-texto-suave: #55504a;
   --cor-borda: #c9bfa9;
-  --cor-primaria: #d9531e;
+  --cor-primaria: #c2410c;
   --cor-primaria-escura: #a8400f;
   --cor-secundaria: #35494f;
   --cor-secundaria-clara: #4d6771;
@@ -78,7 +78,8 @@ h3 { font-size: 1.2rem; }
 
 p { max-width: 62ch; }
 a { color: var(--cor-secundaria); }
-body.tema-escuro a { color: var(--cor-secundaria-clara); }
+/* só links "soltos": botões e links com classe mantêm a própria cor */
+body.tema-escuro a:where(:not([class])) { color: var(--cor-secundaria-clara); }
 
 img { max-width: 100%; display: block; }
 
@@ -663,3 +664,33 @@ body.tema-escuro .passos-recuperacao li.ativo { color: #111; }
   border: 2px solid currentColor;
   border-radius: 50%;
 }
+
+/* ==========================================================================
+   Ajustes finais: status, contraste do tema escuro e movimento reduzido
+   ========================================================================== */
+.status-aceito { color: var(--cor-secundaria); }
+.status-recusado { color: var(--cor-erro); }
+body.tema-escuro .status-aceito { color: var(--cor-secundaria-clara); }
+
+/* tema escuro: fundos claros pedem texto escuro (contraste mínimo de 4,5:1) */
+body.tema-escuro .botao-primario,
+body.tema-escuro .aba.ativa,
+body.tema-escuro .botao-perigo,
+body.tema-escuro .selo-ok { color: #111; }
+
+body.tema-escuro .barra-acessibilidade { color: #111; }
+body.tema-escuro .botao-a11y { color: #111; border-color: rgba(0,0,0,.55); }
+body.tema-escuro .botao-a11y:hover { background: rgba(0,0,0,.12); }
+body.tema-escuro .botao-a11y[aria-pressed="true"] { background: var(--cor-primaria); border-color: #111; color: #111; }
+
+/* quem pediu menos movimento no sistema não recebe animações */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}
+
+/* campos nunca passam da largura do cartão (UF e blocos de endereço transbordavam) */
+.grade-formulario > * { min-width: 0; }
+.campo { min-width: 0; }
+.campo input, .campo select { width: 100%; min-width: 0; }
+fieldset { min-width: 0; }

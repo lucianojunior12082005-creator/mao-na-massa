@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Painel do cliente — Mão na Massa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="cabecalho">
+  <div class="barra-acessibilidade">
+    <div class="container">
+      <span>Acessibilidade</span>
+      <button class="botao-a11y" data-a11y="tema" aria-pressed="false" title="Alternar tema claro/escuro">◐</button>
+      <button class="botao-a11y" data-a11y="fonte-menos" title="Diminuir tamanho da fonte">A-</button>
+      <button class="botao-a11y" data-a11y="fonte-mais" title="Aumentar tamanho da fonte">A+</button>
+    </div>
+  </div>
+  <div class="container barra-nav">
+    <a href="index.html" class="marca">Mão<span class="ponto">na</span>Massa</a>
+    <button class="alterna-menu-mobile" aria-expanded="false" aria-label="Abrir menu">☰</button>
+    <ul class="menu-principal">
+      <li><a href="dashboard.html" class="link-menu">Painel</a></li>
+      <li data-ocultar-tipo="profissional"><a href="profissionais.html" class="link-menu">Profissionais</a></li>
+      <li data-so-tipo="cliente"><a href="orcamento.html" class="link-menu">Solicitar orçamento</a></li>
+      <li class="sessao-usuario">
+        <span class="nome-usuario" data-sessao="nome">—</span>
+        <a href="#" class="botao botao-secundario" data-acao="logout">Sair</a>
+      </li>
+    </ul>
+  </div>
+</header>
+
+<main class="secao">
+  <div class="container">
+    <h1>Bem-vindo(a) de volta, <span data-sessao="nome">cliente</span>!</h1>
+    <p id="subtitulo-painel">Este é o seu painel. Aqui você acompanha suas solicitações e pede novos serviços.</p>
+
+    <div class="resumo-numeros" id="resumo-numeros" style="margin-top:2rem;"></div>
+
+    <div class="grade-dashboard" style="margin-top:1.5rem;">
+      <div class="cartao-painel">
+        <h3 id="titulo-pedidos">Suas solicitações</h3>
+        <div id="lista-pedidos">
+          <p class="dica-campo">Nenhuma solicitação enviada ainda.</p>
+        </div>
+        <a href="orcamento.html" id="botao-novo-pedido" class="botao botao-primario" style="margin-top:1rem;">Solicitar novo orçamento</a>
+      </div>
+
+      <div class="cartao-painel oculto" id="mural-abertos">
+        <h3>Pedidos abertos na sua categoria</h3>
+        <p class="dica-campo">Clientes que não escolheram um profissional específico. Quem aceitar primeiro fica com o pedido.</p>
+        <div id="lista-mural"></div>
+      </div>
+
+      <div class="cartao-painel" id="card-conta">
+        <h3>Sua conta</h3>
+        <div class="linha-resumo"><span>Status</span><span>Ativa</span></div>
+        <div class="linha-resumo"><span>Serviços disponíveis</span><span>Limpeza, manutenção, obras</span></div>
+        <div class="linha-resumo"><span>Suporte</span><span>suporte@maonamassa.com.br</span></div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="rodape">
+  <div class="container">
+    <p>© 2026 Mão na Massa. Projeto acadêmico — UNISUAM.</p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/dados.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>

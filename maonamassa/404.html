@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Página não encontrada — Mão na Massa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="cabecalho">
+  <div class="container barra-nav">
+    <a href="index.html" class="marca">Mão<span class="ponto">na</span>Massa</a>
+    <ul class="menu-principal">
+      <li><a href="login.html" class="botao botao-primario">Entrar</a></li>
+    </ul>
+  </div>
+</header>
+
+<main class="pagina-estado">
+  <div>
+    <p class="codigo" id="codigo-erro">404</p>
+    <h1 id="titulo-erro">Essa ferramenta não está na caixa.</h1>
+    <p id="texto-erro" style="margin:0 auto;">A página que você procura não existe ou foi movida. Confira o endereço ou volte para o início.</p>
+    <div class="acoes-hero" style="justify-content:center;margin-top:1.6rem;">
+      <a href="index.html" class="botao botao-primario">Voltar ao início</a>
+      <a href="login.html" class="botao botao-secundario">Ir para o login</a>
+    </div>
+  </div>
+</main>
+
+<footer class="rodape">
+  <div class="container">
+    <p>© 2026 Mão na Massa. Projeto acadêmico — UNISUAM.</p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+  const parametros = new URLSearchParams(window.location.search);
+  if (parametros.get("motivo") === "auth") {
+    document.getElementById("codigo-erro").textContent = "401";
+    document.getElementById("titulo-erro").textContent = "Você precisa entrar primeiro.";
+    document.getElementById("texto-erro").textContent = "Essa área é exclusiva para clientes autenticados. Faça login ou crie uma conta para continuar.";
+  }
+</script>
+</body>
+</html>

@@ -8,6 +8,8 @@ Projeto desenvolvido para a disciplina **Projeto de Desenvolvimento em Front-End
 
 > Projeto exclusivamente Front-End: toda persistência de dados é simulada com
 > `localStorage`, sem back-end ou banco de dados.
+> As senhas ficam salvas em texto puro no navegador apenas porque o login é simulado;
+> em um sistema real elas seriam protegidas no servidor.
 
 ## Tecnologias
 
@@ -20,28 +22,33 @@ Projeto desenvolvido para a disciplina **Projeto de Desenvolvimento em Front-End
 
 ```
 maonamassa/
-├── index.html          # Landing page (catálogo + menu com submenus)
-├── cadastro.html        # Cadastro de cliente (validações + CEP)
-├── login.html            # Login (compara com localStorage)
-├── dashboard.html       # Área restrita — perfil e resumo
-├── orcamento.html        # Formulário de feedback/interesse (range, select, radio, checkbox)
-├── confirmacao.html     # Exibição dos dados enviados no formulário
-├── erro.html             # Página de erro personalizada (404 / falha de autenticação)
-├── profissionais.html   # Catálogo com busca, filtros e ordenação
-├── 404.html              # Cópia de erro.html para hospedagens estáticas
+├── index.html             # Landing page (catálogo + menu com submenus)
+├── cadastro.html          # Cadastro com abas: "Quero contratar" (cliente) e "Quero oferecer serviço" (profissional)
+├── login.html             # Login (compara com localStorage)
+├── esqueci-senha.html     # Recuperação de senha em 2 etapas (simulada)
+├── dashboard.html         # Área restrita — painel do cliente ou do profissional
+├── editar-perfil.html     # Edição dos dados da própria conta (ícone ao lado do nome)
+├── orcamento.html         # Formulário de solicitação (range, select, radio, checkbox)
+├── confirmacao.html       # Exibição dos dados enviados no formulário
+├── profissionais.html     # Catálogo com busca, filtros e ordenação
+├── erro.html              # Página de erro personalizada (404 / falha de autenticação)
+├── 404.html               # Cópia de erro.html para hospedagens estáticas
 ├── css/
-│   └── style.css
+│   ├── style.css          # estilos gerais, tema escuro e responsividade
+│   └── perfil.css         # estilos só da tela Editar perfil
 ├── js/
-│   ├── main.js           # menu mobile, toasts, modal, acessibilidade, sessão
-│   ├── cadastro.js        # validações do cadastro + integração ViaCEP
-│   ├── login.js           # autenticação simulada
-│   ├── orcamento.js       # formulário de solicitação de orçamento
-│   ├── confirmacao.js     # renderização do resumo enviado
-│   ├── editar-perfil.js   # edição dos dados da conta logada
-│   ├── dados.js           # lista de profissionais (dados simulados)
-│   ├── profissionais.js   # busca, filtros e ordenação
-│   └── dashboard.js       # histórico, status e avaliação
-└── assets/               # imagens e ícones (executivo.png = avatar padrão)
+│   ├── main.js                    # menu mobile, toasts, modal, acessibilidade, sessão e contas
+│   ├── cadastro.js                # validações do cadastro de cliente + ViaCEP + máscaras
+│   ├── cadastro-profissional.js   # abas do cadastro + conta de profissional
+│   ├── login.js                   # autenticação simulada
+│   ├── esqueci-senha.js           # recuperação de senha
+│   ├── editar-perfil.js           # edição de perfil, troca de senha e exclusão de conta
+│   ├── orcamento.js               # formulário de solicitação de orçamento
+│   ├── confirmacao.js             # resumo do pedido enviado
+│   ├── dados.js                   # profissionais (fixos + cadastrados) e cartão do profissional
+│   ├── profissionais.js           # busca, filtros e ordenação
+│   └── dashboard.js               # histórico, status, avaliação e mural do profissional
+└── assets/                # imagens e ícones (executivo.png = avatar padrão)
 ```
 
 ## Recursos extras
@@ -79,8 +86,10 @@ maonamassa/
 ## Desafio Plus — Acessibilidade
 
 Barra de ferramentas com:
-- Alternância entre tema claro e tema escuro (alto contraste)
+- Alternância entre tema claro e tema escuro (alto contraste, texto escuro sobre as cores claras do tema escuro)
 - Botões A+ / A- para aumentar/diminuir a fonte do conteúdo, sem quebrar o layout
+- Respeita `prefers-reduced-motion` (sem animações para quem pediu menos movimento)
+- Barra de acessibilidade presente em todas as páginas, inclusive 404 e erro
 
 ## Como rodar
 
@@ -88,6 +97,7 @@ Basta abrir `index.html` no navegador, ou publicar a pasta em GitHub Pages, Verc
 
 ## Integrantes
 
-- Ian
-- Luciano Santos
-- Pedro Rúben
+- Nome 1
+- Nome 2
+- Nome 3
+- Nome 4

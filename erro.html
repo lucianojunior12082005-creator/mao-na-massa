@@ -11,6 +11,14 @@
 <body>
 
 <header class="cabecalho">
+  <div class="barra-acessibilidade">
+    <div class="container">
+      <span>Acessibilidade</span>
+      <button class="botao-a11y" data-a11y="tema" aria-pressed="false" title="Alternar tema claro/escuro">◐</button>
+      <button class="botao-a11y" data-a11y="fonte-menos" title="Diminuir tamanho da fonte">A-</button>
+      <button class="botao-a11y" data-a11y="fonte-mais" title="Aumentar tamanho da fonte">A+</button>
+    </div>
+  </div>
   <div class="container barra-nav">
     <a href="index.html" class="marca">Mão<span class="ponto">na</span>Massa</a>
     <ul class="menu-principal">
@@ -43,7 +51,7 @@
   if (parametros.get("motivo") === "auth") {
     document.getElementById("codigo-erro").textContent = "401";
     document.getElementById("titulo-erro").textContent = "Você precisa entrar primeiro.";
-    document.getElementById("texto-erro").textContent = "Essa área é exclusiva para clientes autenticados. Faça login ou crie uma conta para continuar.";
+    document.getElementById("texto-erro").textContent = "Essa área é exclusiva para usuários autenticados. Faça login ou crie uma conta para continuar.";
   }
 </script>
 </body>
