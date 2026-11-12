@@ -97,7 +97,6 @@ Basta abrir `index.html` no navegador, ou publicar a pasta em GitHub Pages, Verc
 
 ## Integrantes
 
-- Nome 1
-- Nome 2
-- Nome 3
-- Nome 4
+- Ian
+- Luciano Santos
+- Pedro Ruben
