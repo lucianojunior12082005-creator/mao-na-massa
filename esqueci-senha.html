@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recuperar senha — Mão na Massa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="cabecalho">
+  <div class="barra-acessibilidade">
+    <div class="container">
+      <span>Acessibilidade</span>
+      <button class="botao-a11y" data-a11y="tema" aria-pressed="false" title="Alternar tema claro/escuro">◐</button>
+      <button class="botao-a11y" data-a11y="fonte-menos" title="Diminuir tamanho da fonte">A-</button>
+      <button class="botao-a11y" data-a11y="fonte-mais" title="Aumentar tamanho da fonte">A+</button>
+    </div>
+  </div>
+  <div class="container barra-nav">
+    <a href="index.html" class="marca">Mão<span class="ponto">na</span>Massa</a>
+    <button class="alterna-menu-mobile" aria-expanded="false" aria-label="Abrir menu">☰</button>
+    <ul class="menu-principal">
+      <li><a href="index.html#servicos" class="link-menu">Serviços</a></li>
+      <li><a href="login.html" class="botao botao-primario">Entrar</a></li>
+    </ul>
+  </div>
+</header>
+
+<main class="pagina-formulario">
+  <div class="cartao-formulario" style="max-width:480px;">
+    <span class="rotulo" style="color:var(--cor-primaria-escura);font-weight:700;">Recuperar acesso</span>
+    <h1 style="font-size:1.8rem;">Esqueci minha senha</h1>
+
+    <ol class="passos-recuperacao" aria-label="Etapas">
+      <li class="ativo" id="indicador-1">1. Confirmar identidade</li>
+      <li id="indicador-2">2. Nova senha</li>
+    </ol>
+
+    <form id="form-confirmar" novalidate>
+      <p class="dica-campo">Informe os dados que você usou no cadastro. Como este projeto é só Front-End (sem envio de e-mail), a identidade é confirmada comparando com os dados salvos neste navegador.</p>
+      <div class="campo largo">
+        <label for="rec-login">Login</label>
+        <input type="text" id="rec-login" maxlength="6" required>
+      </div>
+      <div class="campo largo">
+        <label for="rec-cpf">CPF</label>
+        <input type="text" id="rec-cpf" inputmode="numeric" maxlength="14" placeholder="000.000.000-00" required>
+      </div>
+      <div class="campo largo">
+        <label for="rec-celular">Celular</label>
+        <input type="text" id="rec-celular" placeholder="(+55)21-XXXXXXXX" required>
+      </div>
+      <span class="mensagem-erro" id="rec-erro-geral" role="alert"></span>
+      <button type="submit" class="botao botao-primario botao-bloco">Continuar</button>
+    </form>
+
+    <form id="form-nova-senha" class="oculto" novalidate>
+      <p class="dica-campo">Identidade confirmada. Escolha uma nova senha.</p>
+      <div class="campo largo">
+        <label for="nova-senha">Nova senha</label>
+        <input type="password" id="nova-senha" maxlength="8" required>
+        <span class="mensagem-erro" id="nova-senha-erro"></span>
+        <span class="dica-campo">Exatamente 8 letras.</span>
+      </div>
+      <div class="campo largo">
+        <label for="nova-senha-confirmar">Confirmar nova senha</label>
+        <input type="password" id="nova-senha-confirmar" maxlength="8" required>
+        <span class="mensagem-erro" id="nova-senha-confirmar-erro"></span>
+      </div>
+      <button type="submit" class="botao botao-primario botao-bloco">Salvar nova senha</button>
+    </form>
+
+    <p class="dica-campo" style="text-align:center;margin-top:1rem;"><a href="login.html">Voltar para o login</a></p>
+  </div>
+</main>
+
+<footer class="rodape">
+  <div class="container">
+    <p>© 2026 Mão na Massa. Projeto acadêmico — UNISUAM.</p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/cadastro.js"></script>
+<script src="js/esqueci-senha.js"></script>
+</body>
+</html>

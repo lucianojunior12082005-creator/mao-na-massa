@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solicitação enviada — Mão na Massa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="cabecalho">
+  <div class="barra-acessibilidade">
+    <div class="container">
+      <span>Acessibilidade</span>
+      <button class="botao-a11y" data-a11y="tema" aria-pressed="false" title="Alternar tema claro/escuro">◐</button>
+      <button class="botao-a11y" data-a11y="fonte-menos" title="Diminuir tamanho da fonte">A-</button>
+      <button class="botao-a11y" data-a11y="fonte-mais" title="Aumentar tamanho da fonte">A+</button>
+    </div>
+  </div>
+  <div class="container barra-nav">
+    <a href="index.html" class="marca">Mão<span class="ponto">na</span>Massa</a>
+    <button class="alterna-menu-mobile" aria-expanded="false" aria-label="Abrir menu">☰</button>
+    <ul class="menu-principal">
+      <li><a href="dashboard.html" class="link-menu">Painel</a></li>
+      <li data-ocultar-tipo="profissional"><a href="profissionais.html" class="link-menu">Profissionais</a></li>
+      <li data-so-tipo="cliente"><a href="orcamento.html" class="link-menu">Solicitar orçamento</a></li>
+      <li class="sessao-usuario">
+        <span class="nome-usuario" data-sessao="nome">—</span>
+        <a href="#" class="botao botao-secundario" data-acao="logout">Sair</a>
+      </li>
+    </ul>
+  </div>
+</header>
+
+<main class="secao">
+  <div class="container" style="text-align:center;">
+    <span class="selo-ok" style="position:static;transform:none;display:inline-block;">Solicitação recebida</span>
+    <h1>Recebemos seu pedido!</h1>
+    <p style="margin:0 auto;">Um profissional entrará em contato para confirmar o atendimento. Veja abaixo o resumo do que foi enviado.</p>
+    <dl class="recibo" id="recibo-pedido"></dl>
+    <a href="dashboard.html" class="botao botao-primario" style="margin-top:1.6rem;">Voltar ao painel</a>
+  </div>
+</main>
+
+<footer class="rodape">
+  <div class="container">
+    <p>© 2026 Mão na Massa. Projeto acadêmico — UNISUAM.</p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/dados.js"></script>
+<script src="js/confirmacao.js"></script>
+</body>
+</html>

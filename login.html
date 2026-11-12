@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Entrar — Mão na Massa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-so-visitante>
+
+<header class="cabecalho">
+  <div class="barra-acessibilidade">
+    <div class="container">
+      <span>Acessibilidade</span>
+      <button class="botao-a11y" data-a11y="tema" aria-pressed="false" title="Alternar tema claro/escuro">◐</button>
+      <button class="botao-a11y" data-a11y="fonte-menos" title="Diminuir tamanho da fonte">A-</button>
+      <button class="botao-a11y" data-a11y="fonte-mais" title="Aumentar tamanho da fonte">A+</button>
+    </div>
+  </div>
+  <div class="container barra-nav">
+    <a href="index.html" class="marca">Mão<span class="ponto">na</span>Massa</a>
+    <button class="alterna-menu-mobile" aria-expanded="false" aria-label="Abrir menu">☰</button>
+    <ul class="menu-principal">
+      <li><a href="index.html#servicos" class="link-menu">Serviços</a></li>
+      <li><a href="cadastro.html" class="botao botao-primario">Criar conta</a></li>
+    </ul>
+  </div>
+</header>
+
+<main class="pagina-formulario">
+  <div class="cartao-formulario" style="max-width:420px;">
+    <span class="rotulo" style="color:var(--cor-primaria-escura);font-weight:700;">Acesso do cliente</span>
+    <h1 style="font-size:1.8rem;">Entrar na conta</h1>
+
+    <form id="form-login" novalidate>
+      <div class="campo largo">
+        <label for="login-usuario">Login</label>
+        <input type="text" id="login-usuario" name="login-usuario" maxlength="6" required>
+      </div>
+      <div class="campo largo">
+        <label for="login-senha">Senha</label>
+        <input type="password" id="login-senha" name="login-senha" maxlength="8" required>
+      </div>
+      <span class="mensagem-erro" id="login-erro-geral"></span>
+      <button type="submit" class="botao botao-primario botao-bloco">Entrar</button>
+      <p class="dica-campo" style="text-align:center;margin-top:1rem;"><a href="esqueci-senha.html">Esqueci minha senha</a></p>
+      <p class="dica-campo" style="text-align:center;margin-top:1rem;">Ainda não tem conta? <a href="cadastro.html">Cadastre-se</a></p>
+    </form>
+  </div>
+</main>
+
+<footer class="rodape">
+  <div class="container">
+    <p>© 2026 Mão na Massa. Projeto acadêmico — UNISUAM.</p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/login.js"></script>
+</body>
+</html>

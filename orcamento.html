@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solicitar orçamento — Mão na Massa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="cabecalho">
+  <div class="barra-acessibilidade">
+    <div class="container">
+      <span>Acessibilidade</span>
+      <button class="botao-a11y" data-a11y="tema" aria-pressed="false" title="Alternar tema claro/escuro">◐</button>
+      <button class="botao-a11y" data-a11y="fonte-menos" title="Diminuir tamanho da fonte">A-</button>
+      <button class="botao-a11y" data-a11y="fonte-mais" title="Aumentar tamanho da fonte">A+</button>
+    </div>
+  </div>
+  <div class="container barra-nav">
+    <a href="index.html" class="marca">Mão<span class="ponto">na</span>Massa</a>
+    <button class="alterna-menu-mobile" aria-expanded="false" aria-label="Abrir menu">☰</button>
+    <ul class="menu-principal">
+      <li><a href="dashboard.html" class="link-menu">Painel</a></li>
+      <li data-ocultar-tipo="profissional"><a href="profissionais.html" class="link-menu">Profissionais</a></li>
+      <li data-so-tipo="cliente"><a href="orcamento.html" class="link-menu">Solicitar orçamento</a></li>
+      <li class="sessao-usuario">
+        <span class="nome-usuario" data-sessao="nome">—</span>
+        <a href="#" class="botao botao-secundario" data-acao="logout">Sair</a>
+      </li>
+    </ul>
+  </div>
+</header>
+
+<main class="pagina-formulario">
+  <div class="cartao-formulario">
+    <span class="rotulo" style="color:var(--cor-primaria-escura);font-weight:700;">Nova solicitação</span>
+    <h1 style="font-size:1.8rem;">Conte o que você precisa</h1>
+
+    <form id="form-orcamento" novalidate>
+      <div class="campo largo">
+        <label for="tipo-servico">Tipo de serviço</label>
+        <select id="tipo-servico" required>
+          <option value="">Selecione uma opção</option>
+          <option value="limpeza">Limpeza residencial</option>
+          <option value="manutencao">Manutenção geral</option>
+          <option value="obras">Pequenas obras e reparos</option>
+        </select>
+      </div>
+
+      <div class="campo largo">
+        <label for="profissional">Profissional (opcional)</label>
+        <select id="profissional">
+          <option value="">Qualquer profissional disponível</option>
+        </select>
+        <span class="dica-campo">Escolha na lista ou deixe em aberto; você também pode ver todos em <a href="profissionais.html">Profissionais</a>.</span>
+      </div>
+
+      <div class="campo largo">
+        <label for="data-hora">Agende a data e a hora</label>
+        <input type="datetime-local" id="data-hora" name="data-hora">
+      </div>
+
+      <div class="campo largo">
+        <label for="urgencia">Nível de urgência: <span class="valor-range" id="valor-urgencia"></span></label>
+        <input type="range" id="urgencia" min="1" max="5" value="2">
+      </div>
+
+      <fieldset>
+        <legend>Período de preferência</legend>
+        <div class="opcao-linha">
+          <input type="radio" id="periodo-manha" name="periodo" value="Manhã">
+          <label for="periodo-manha">Manhã</label>
+        </div>
+        <div class="opcao-linha">
+          <input type="radio" id="periodo-tarde" name="periodo" value="Tarde">
+          <label for="periodo-tarde">Tarde</label>
+        </div>
+        <div class="opcao-linha">
+          <input type="radio" id="periodo-noite" name="periodo" value="Noite">
+          <label for="periodo-noite">Noite</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Serviços extras (opcional)</legend>
+        <div class="opcao-linha">
+          <input type="checkbox" id="extra-material" name="extra" value="Fornecer materiais">
+          <label for="extra-material">Preciso que o profissional traga os materiais</label>
+        </div>
+        <div class="opcao-linha">
+          <input type="checkbox" id="extra-orcamento" name="extra" value="Orçamento por escrito">
+          <label for="extra-orcamento">Quero um orçamento por escrito antes</label>
+        </div>
+        <div class="opcao-linha">
+          <input type="checkbox" id="extra-fds" name="extra" value="Atendimento em fim de semana">
+          <label for="extra-fds">Pode ser em fim de semana</label>
+        </div>
+      </fieldset>
+
+      <div class="campo largo">
+        <label for="detalhes">Detalhes adicionais</label>
+        <input type="text" id="detalhes" placeholder="Ex.: vazamento embaixo da pia da cozinha">
+      </div>
+
+      <button type="submit" class="botao botao-primario botao-bloco">Enviar solicitação</button>
+    </form>
+  </div>
+</main>
+
+<footer class="rodape">
+  <div class="container">
+    <p>© 2026 Mão na Massa. Projeto acadêmico — UNISUAM.</p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/dados.js"></script>
+<script src="js/orcamento.js"></script>
+</body>
+</html>

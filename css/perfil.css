@@ -1,0 +1,43 @@
+/* ==========================================================================
+   perfil.css — só o que é específico da tela Editar perfil.
+   Carregue DEPOIS do style.css (que já tem cores, botões, campos e tema escuro).
+   ========================================================================== */
+
+.perfil-topo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-bottom: 1.25rem;
+  margin-bottom: 1.25rem;
+  border-bottom: 2px solid var(--cor-borda);
+}
+
+#perfil-avatar {
+  flex: none;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--cor-texto);
+  background: var(--cor-fundo-alt);
+}
+
+/* campos bloqueados (nome, CPF, login e endereço vindo do CEP) */
+.campo input[readonly] {
+  background: var(--cor-fundo-alt);
+  color: var(--cor-texto-suave);
+  cursor: not-allowed;
+}
+
+.acoes-perfil {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .8rem;
+  margin-top: 1.4rem;
+}
+.acoes-perfil .botao { flex: 1 1 10rem; text-align: center; }
+.acoes-perfil .botao-perigo { flex-basis: 100%; }
+
+@media (max-width: 767px) {
+  .perfil-topo { flex-direction: column; text-align: center; }
+}
