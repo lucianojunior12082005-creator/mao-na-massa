@@ -42,12 +42,28 @@
     <form id="form-orcamento" novalidate>
       <div class="campo largo">
         <label for="tipo-servico">Tipo de serviço</label>
-        <select id="tipo-servico" required>
-          <option value="">Selecione uma opção</option>
-          <option value="limpeza">Limpeza residencial</option>
-          <option value="manutencao">Manutenção geral</option>
-          <option value="obras">Pequenas obras e reparos</option>
-        </select>
+       <label for="servicos">Escolha um serviço:</label>
+<select id="servicos" name="servicos" required>
+  <option value="" selected disabled hidden>Selecione...</option>
+
+  <optgroup label="LIMPEZA">
+    <option value="faxina-completa">Faxina Completa</option>
+    <option value="limpeza-pos-obra">Limpeza Pós-Obra</option>
+    <option value="higienizacao-sofas-tapetes">Higienização de Sofás e Tapetes</option>
+  </optgroup>
+
+  <optgroup label="MANUTENÇÃO">
+    <option value="eletrica-residencial">Elétrica Residencial</option>
+    <option value="encanamento-vazamentos">Encanamento e Vazamentos</option>
+    <option value="ar-condicionado">Ar-Condicionado</option>
+  </optgroup>
+
+  <optgroup label="PEQUENAS OBRAS">
+    <option value="pintura-ambientes">Pintura de Ambientes</option>
+    <option value="montagem-moveis">Montagem de Móveis</option>
+    <option value="reparos-alvenaria">Reparos de Alvenaria</option>
+  </optgroup>
+</select>
       </div>
 
       <div class="campo largo">
