@@ -79,6 +79,37 @@
         <input type="datetime-local" id="data-hora" name="data-hora">
       </div>
 
+<fieldset>
+  <legend>Endereço do atendimento</legend>
+
+  <div class="campo largo">
+    <label for="cep">CEP</label>
+    <input type="text" id="cep" name="cep" inputmode="numeric"
+           maxlength="9" placeholder="00000-000" autocomplete="postal-code">
+    <span class="dica-campo" id="status-cep" aria-live="polite"></span>
+  </div>
+
+  <div class="campo largo">
+    <label for="logradouro">Rua / Logradouro</label>
+    <input type="text" id="logradouro" readonly tabindex="-1">
+  </div>
+
+  <div class="campo largo">
+    <label for="bairro">Bairro</label>
+    <input type="text" id="bairro" readonly tabindex="-1">
+  </div>
+
+  <div class="campo largo">
+    <label for="cidade">Cidade</label>
+    <input type="text" id="cidade" readonly tabindex="-1">
+  </div>
+
+  <div class="campo largo">
+    <label for="uf">UF</label>
+    <input type="text" id="uf" readonly tabindex="-1">
+  </div>
+</fieldset>
+
       <fieldset>
         <legend>Serviços extras (opcional)</legend>
         <div class="opcao-linha">
