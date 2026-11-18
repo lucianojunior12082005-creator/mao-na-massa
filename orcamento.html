@@ -139,20 +139,18 @@
 </fieldset>
 
       <fieldset>
-        <legend>Serviços extras (opcional)</legend>
-        <div class="opcao-linha">
-          <input type="checkbox" id="extra-material" name="extra" value="Fornecer materiais">
-          <label for="extra-material">Preciso que o profissional traga os materiais</label>
-        </div>
-        <div class="opcao-linha">
-          <input type="checkbox" id="extra-orcamento" name="extra" value="Orçamento por escrito">
-          <label for="extra-orcamento">Quero um orçamento por escrito antes</label>
-        </div>
-        <div class="opcao-linha">
-          <input type="checkbox" id="extra-fds" name="extra" value="Atendimento em fim de semana">
-          <label for="extra-fds">Pode ser em fim de semana</label>
-        </div>
-      </fieldset>
+  <legend>O profissional deve trazer os materiais?</legend>
+
+  <fieldset class="pergunta">
+    <div class="opcao-linha">
+      <input type="radio" id="materialSim" name="extraMaterial" value="sim">
+      <label for="materialSim">Sim</label>
+    </div>
+    <div class="opcao-linha">
+      <input type="radio" id="materialNao" name="extraMaterial" value="nao" checked>
+      <label for="materialNao">Não</label>
+    </div>
+  </fieldset>
 
       <div class="campo largo">
         <label for="detalhes">Detalhes adicionais</label>

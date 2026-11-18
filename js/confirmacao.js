@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
     <dt>Endereço</dt><dd>${pedido.endereco ? esc(`${pedido.endereco.rua}, ${pedido.endereco.complemento ? pedido.endereco.complemento + ", " : ""}${pedido.endereco.bairro} — ${pedido.endereco.cidade}/${pedido.endereco.uf} · CEP ${pedido.endereco.cep}`) : "Não informado"}</dd>
     <dt>Profissional</dt><dd>${prof ? esc(prof.nome) : "Qualquer disponível"}</dd>
     <dt>Data e hora</dt><dd>${esc(quando)}</dd>
-    <dt>Serviços extras</dt><dd>${extras.length ? esc(extras.join(", ")) : "Nenhum"}</dd>
+    <dt>O profissional deve trazer os materiais?</dt><dd>${pedido.extraMaterial === "sim" ? "sim" : "Não"}</dd>
     <dt>Detalhes</dt><dd>${esc(pedido.detalhes) || "—"}</dd>
     <dt>Enviado em</dt><dd>${new Date(pedido.enviadoEm).toLocaleString("pt-BR")}</dd>
   `;
