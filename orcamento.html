@@ -41,8 +41,7 @@
 
     <form id="form-orcamento" novalidate>
       <div class="campo largo">
-        <label for="tipo-servico">Tipo de serviço</label>
-       <label for="servicos">Escolha um serviço:</label>
+        <label for="servicos">Tipo de serviço</label>
 <select id="servicos" name="servicos" required>
   <option value="" selected disabled hidden>Selecione...</option>
 
@@ -79,6 +78,29 @@
         <input type="datetime-local" id="data-hora" name="data-hora">
       </div>
 
+      <!-- ESCONDIDO: valor fixo (value="2" = "Esta semana"), mantido para a confirmação -->
+      <div class="campo largo" style="display:none;" aria-hidden="true">
+        <label for="urgencia">Nível de urgência: <span class="valor-range" id="valor-urgencia"></span></label>
+        <input type="range" id="urgencia" name="urgencia" min="1" max="5" value="2" tabindex="-1">
+      </div>
+
+      <!-- ESCONDIDO: valor fixo (Manhã marcado), mantido para a confirmação -->
+      <fieldset style="display:none;" aria-hidden="true">
+        <legend>Período de preferência</legend>
+        <div class="opcao-linha">
+          <input type="radio" id="periodo-manha" name="periodo" value="Manhã" checked tabindex="-1">
+          <label for="periodo-manha">Manhã</label>
+        </div>
+        <div class="opcao-linha">
+          <input type="radio" id="periodo-tarde" name="periodo" value="Tarde" tabindex="-1">
+          <label for="periodo-tarde">Tarde</label>
+        </div>
+        <div class="opcao-linha">
+          <input type="radio" id="periodo-noite" name="periodo" value="Noite" tabindex="-1">
+          <label for="periodo-noite">Noite</label>
+        </div>
+      </fieldset>
+
 <fieldset>
   <legend>Endereço do atendimento</legend>
 
@@ -110,8 +132,8 @@
   </div>
 
     <div class="campo largo">
-        <label for="detalhes">Complemento</label>
-        <input type="text" id="detalhes" placeholder="nº, casa, apt.">
+        <label for="complemento">Complemento</label>
+        <input type="text" id="complemento" placeholder="nº, casa, apt.">
       </div>
 
 </fieldset>
@@ -134,11 +156,10 @@
 
       <div class="campo largo">
         <label for="detalhes">Detalhes adicionais</label>
-        <input type="text" id="detalhes" placeholder="Ex.: cores, medidas, observações...">
+        <input type="text" id="detalhes" placeholder="observação">
       </div>
 
-      
-      <a href="confirmacao.html" class="botao botao-secundario botao-bloco">Enviar Solicitação</a>
+      <button type="submit" class="botao botao-primario botao-bloco">Enviar solicitação</button>
     </form>
   </div>
 </main>

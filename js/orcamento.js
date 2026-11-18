@@ -72,7 +72,27 @@ campoCep.addEventListener("input", () => {
   if (!form) return;
 
   const campoProf = document.getElementById("profissional");
-  const campoServico = document.getElementById("tipo-servico");
+  const campoServico = document.getElementById("servicos");
+
+  // cada serviço detalhado pertence a uma categoria (a mesma usada pelos profissionais e pelo painel)
+  const CATEGORIA_DO_SERVICO = {
+    "faxina-completa": "limpeza",
+    "limpeza-pos-obra": "limpeza",
+    "higienizacao-sofas-tapetes": "limpeza",
+    "eletrica-residencial": "manutencao",
+    "encanamento-vazamentos": "manutencao",
+    "ar-condicionado": "manutencao",
+    "pintura-ambientes": "obras",
+    "montagem-moveis": "obras",
+    "reparos-alvenaria": "obras",
+  };
+  const categoriaSelecionada = () => CATEGORIA_DO_SERVICO[campoServico.value] || "";
+  // se o serviço escolhido não é da categoria do profissional, seleciona o primeiro serviço dela
+  function ajustarServicoParaCategoria(categoria) {
+    if (categoriaSelecionada() === categoria) return;
+    const primeiro = Object.keys(CATEGORIA_DO_SERVICO).find((s) => CATEGORIA_DO_SERVICO[s] === categoria);
+    if (primeiro) campoServico.value = primeiro;
+  }
   const campoDataHora = document.getElementById("data-hora");
   const urgencia = document.getElementById("urgencia");
   const valorUrgencia = document.getElementById("valor-urgencia");
@@ -90,13 +110,13 @@ campoCep.addEventListener("input", () => {
   const profUrl = obterProfissional(new URLSearchParams(window.location.search).get("prof"));
   if (profUrl) {
     campoProf.value = profUrl.id;
-    campoServico.value = profUrl.categoria;
+    ajustarServicoParaCategoria(profUrl.categoria);
   }
 
-  // se o usuário escolher um profissional, a categoria acompanha
+  // se o usuário escolher um profissional, o serviço acompanha a categoria dele
   campoProf.addEventListener("change", () => {
     const p = obterProfissional(campoProf.value);
-    if (p) campoServico.value = p.categoria;
+    if (p) ajustarServicoParaCategoria(p.categoria);
   });
 
   // não permite agendar no passado
@@ -112,7 +132,9 @@ campoCep.addEventListener("input", () => {
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    const tipoServico = campoServico.value;
+    const servicoEspecifico = campoServico.value;
+    const tipoServico = categoriaSelecionada(); // limpeza | manutencao | obras
+    const nomeServico = campoServico.selectedOptions[0] ? campoServico.selectedOptions[0].textContent : "";
     const periodo = form.querySelector('input[name="periodo"]:checked');
 
     if (!tipoServico) {
@@ -137,6 +159,18 @@ campoCep.addEventListener("input", () => {
       clienteId: sessao.id,
       nomeCliente: sessao.nome,
       tipoServico,
+      servicoEspecifico,
+      nomeServico,
+      endereco: enderecoValido
+        ? {
+            cep: campoCep.value,
+            rua: camposEndereco.logradouro.value,
+            bairro: camposEndereco.bairro.value,
+            cidade: camposEndereco.cidade.value,
+            uf: camposEndereco.uf.value,
+            complemento: document.getElementById("complemento").value.trim(),
+          }
+        : null,
       profissionalId: prof ? prof.id : null,
       dataHora: campoDataHora.value || null,
       urgencia: Number(urgencia.value),
@@ -153,6 +187,7 @@ campoCep.addEventListener("input", () => {
     salvarPedidos(pedidos);
     localStorage.setItem("mnm_ultimo_pedido", String(pedido.id));
     mostrarToast("Solicitação enviada", "Já vamos te mostrar o resumo do pedido.");
-    setTimeout(() => (window.location.href = "confirmacao.html"), 700);
+    // ?imprimir=1 avisa a página de confirmação para abrir a impressão do recibo
+    setTimeout(() => (window.location.href = "confirmacao.html?imprimir=1"), 700);
   });
 });
